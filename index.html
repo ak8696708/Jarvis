@@ -637,24 +637,7 @@
                 <h3 class="module-title">AI Command Interface</h3>
                 <span class="module-status">Ready</span>
             </div>
-            <div class="messages" id="messages">
-                <div class="message assistant">
-                    <div class="message-header">
-                        <span class="message-role">J.A.R.V.I.S.</span>
-                        <span class="timestamp">${new Date().toLocaleTimeString()}</span>
-                    </div>
-                    <div class="message-content">Good day. JARVIS system initialized and ready for commands. I can help you with:
-
-• Task management - Create, track, and complete tasks
-• Scheduling - Organize your calendar and events
-• Roadmap planning - Build strategic plans and milestones
-• Information retrieval - Search and analyze data
-• Problem solving - Break down complex challenges
-• Design & engineering - Assist with technical projects
-
-How may I assist you today?</div>
-                </div>
-            </div>
+            <div class="messages" id="messages"></div>
             <div class="loading" id="loading">◆ JARVIS PROCESSING</div>
             <div class="input-area">
                 <div class="input-wrapper">
@@ -690,6 +673,8 @@ IMPORTANT: When you create tasks, schedules, or roadmaps, ALWAYS include the JSO
 
 Maintain a professional, efficient tone like JARVIS from Iron Man - helpful but direct, intelligent but not condescending.`;
 
+    const initialGreeting = `Good day. JARVIS system initialized and ready for commands. I can help you with:\n\n• Task management - Create, track, and complete tasks\n• Scheduling - Organize your calendar and events\n• Roadmap planning - Build strategic plans and milestones\n• Information retrieval - Search and analyze data\n• Problem solving - Break down complex challenges\n• Design & engineering - Assist with technical projects\n\nHow may I assist you today?`;
+
         // Check server connection on load
         window.addEventListener('load', async function() {
             const backendUrl = document.getElementById('backendUrl').value;
@@ -704,6 +689,8 @@ Maintain a professional, efficient tone like JARVIS from Iron Man - helpful but 
                 document.getElementById('statusText').textContent = 'Backend Server Offline';
                 addMessage('assistant', '⚠️ Warning: Cannot connect to backend server. Please start the server using the instructions in the setup guide.');
             }
+            // Add initial assistant greeting with proper timestamp
+            addMessage('assistant', initialGreeting);
             document.getElementById('userInput').focus();
         });
 
