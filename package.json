@@ -1,0 +1,11 @@
+{
+  "name": "jarvis",
+  "version": "1.0.0",
+  "description": "Jarvis assistant project",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Jarvis",
+  "license": "MIT"
+}
